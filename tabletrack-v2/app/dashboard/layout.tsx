@@ -42,9 +42,13 @@ function DashboardContent({ children }: { children: React.ReactNode }) {
                 const { data: { session }, error } = await supabase.auth.getSession()
                 const isBypass = localStorage.getItem("tt_v2_bypass") === "true"
 
+                console.log("DASHBOARD AUTH CHECK:", { hasSession: !!session, isBypass })
+
                 if ((error || !session) && !isBypass) {
+                    console.log("DASHBOARD: Not authorized, redirecting to login")
                     router.push("/login")
                 } else {
+                    console.log("DASHBOARD: Authorized")
                     setLoading(false)
                 }
             } catch (err) {

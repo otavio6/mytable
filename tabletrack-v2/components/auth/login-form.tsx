@@ -46,11 +46,23 @@ export function LoginForm() {
                     }))
                 }
 
+                console.log("BYPASS: Developer account detected")
                 setSuccess("Acesso de desenvolvedor autorizado!")
                 localStorage.setItem("tt_v2_bypass", "true")
+
+                // Clear loading to unlock UI
+                setLoading(false)
+
+                console.log("BYPASS: Redirecting to dashboard...")
+                router.push("/dashboard")
+
+                // Fallback for extreme cases
                 setTimeout(() => {
-                    router.push("/dashboard")
-                }, 1000)
+                    if (window.location.pathname === "/login") {
+                        console.log("BYPASS: Router failed, using window.location fallback")
+                        window.location.href = "/dashboard"
+                    }
+                }, 2000)
                 return
             }
 
