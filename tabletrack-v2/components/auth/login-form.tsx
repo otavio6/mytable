@@ -26,7 +26,7 @@ export function LoginForm() {
             const cleanEmail = email.trim()
 
             // Developer Bypass
-            if (cleanEmail === "guilherme@otahstudio.com" && password === "guilherme123") {
+            if (cleanEmail.toLowerCase() === "guilherme@otahstudio.com" && password === "guilherme123") {
                 // Update local profile name
                 const savedSettings = localStorage.getItem("tt_v2_settings")
                 if (savedSettings) {
