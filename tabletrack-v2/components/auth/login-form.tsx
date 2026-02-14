@@ -47,6 +47,7 @@ export function LoginForm() {
                 }
 
                 setSuccess("Acesso de desenvolvedor autorizado!")
+                localStorage.setItem("tt_v2_bypass", "true")
                 setTimeout(() => {
                     router.push("/dashboard")
                 }, 1000)

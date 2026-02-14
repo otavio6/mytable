@@ -40,7 +40,9 @@ function DashboardContent({ children }: { children: React.ReactNode }) {
         const checkAuth = async () => {
             try {
                 const { data: { session }, error } = await supabase.auth.getSession()
-                if (error || !session) {
+                const isBypass = localStorage.getItem("tt_v2_bypass") === "true"
+
+                if ((error || !session) && !isBypass) {
                     router.push("/login")
                 } else {
                     setLoading(false)
@@ -71,6 +73,7 @@ function DashboardContent({ children }: { children: React.ReactNode }) {
 
     const handleSignOut = async () => {
         await supabase.auth.signOut()
+        localStorage.removeItem("tt_v2_bypass")
         router.push("/login")
     }
 
