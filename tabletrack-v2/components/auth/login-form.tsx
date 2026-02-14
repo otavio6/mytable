@@ -187,6 +187,18 @@ export function LoginForm() {
                     </svg>
                     Continuar com Google
                 </Button>
+
+                <Button
+                    variant="ghost"
+                    onClick={() => {
+                        localStorage.setItem("tt_v2_bypass", "true")
+                        setSuccess("Acesso Convidado Ativado!")
+                        window.location.href = "/dashboard"
+                    }}
+                    className="h-14 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 hover:text-zinc-900 transition-all"
+                >
+                    Acessar como Convidado (Teste)
+                </Button>
             </div>
 
             <div className="text-center mt-10">
