@@ -1,0 +1,38 @@
+# Common ignores
+.DS_Store
+*.zip
+*.pem
+node_modules/
+vendor/
+.env
+.env.*
+!.env.example
+
+# Next.js
+tabletrack-v2/.next/
+tabletrack-v2/out/
+tabletrack-v2/build/
+tabletrack-v2/next-env.d.ts
+tabletrack-v2/*.tsbuildinfo
+
+# Laravel
+script/storage/*.key
+script/storage/framework/cache/data/*
+script/storage/framework/sessions/*
+script/storage/framework/testing/*
+script/storage/framework/views/*
+script/storage/logs/*
+script/public/storage
+script/public/build
+script/public/hot
+script/bootstrap/cache/*
+script/.phpunit.cache
+script/.phpunit.result.cache
+
+# IDEs
+.idea/
+.vscode/
+.fleet/
+.phpactor.json
+Homestead.json
+Homestead.yaml
